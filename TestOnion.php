@@ -215,11 +215,14 @@ class TestOnion
 'j7qz365xygdjlyzu.onion',
 ];
 
-		ob_start();
+		//ob_start();
 		
 		$domain = $this->generateDomain();
-		$domain = $t_domain[$index];
-		echo $index.". ".$domain." ";
+		$this->recon( $domain );
+		
+		
+		//$domain = $t_domain[$index];
+		/*echo $index.". ".$domain." ";
 		
 		$t = $this->testDomain( $domain );
 		if( !$t ) {
@@ -238,7 +241,8 @@ class TestOnion
 		ob_end_clean();
 		
 		Utils::_print( $output, $color );
-		return $r;
+		
+		return $r;*/
 	}
 	
 	
@@ -271,6 +275,7 @@ class TestOnion
 	{
 		//$c = '/opt/bin/httpscreenshot  -s http://'.$domain.' --headless -o '.$this->output_dir;
 		$c = '/opt/bin/httpscreenshot  -s http://'.$domain.' --headless -o '.$this->output_dir.' -pX 127.0.0.1:9050';
+		echo $c."\n";
 		exec( $c );
 	}
 	
